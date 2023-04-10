@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./demo/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <script src = 'mainLogic.js' defer type = 'module'></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'chooseMode' class = 'showAnimation'>
+        <button type = 'button' id = 'easyMode' class = '1'>
+            Easy
+        </button>
+        <button type = 'button' id = 'intermediateMode' class = '2'>
+            Intermediate
+        </button>
+        <button type = 'button' id = 'hardMode' class = '3'>
+            Hard
+        </button>
+    </div>
+    <main>
+        <div id = 'score_board'>
+            <p> Current score: <span id = 'current_score'>0</span></p>
+            <p> Best score: <span id = 'top_score'>0</span></p>
+        </div>
+        <div id = 'game_board'></div>
+    </main>
+</body>
+</html>

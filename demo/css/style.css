@@ -1,0 +1,144 @@
+:root {
+  --easy-color: rgb(25, 67, 255);
+  --medium-color: lime;
+  --hard-color: #ff1c10;
+  --black-color: black;
+}
+
+* {
+  font-family: "Black Ops One", cursive, sans-serif;
+  font-weight: 400;
+  color: lime;
+  font-size: 1.1em;
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+body #chooseMode {
+  display: flex;
+  width: 60%;
+  gap: 20px;
+}
+body #chooseMode button {
+  cursor: pointer;
+  background-color: black;
+  flex: 1;
+  transition: 0.3s;
+  padding: 15px;
+  opacity: 1;
+  font-size: 1.2em;
+}
+body #chooseMode button:hover {
+  color: var(--black-color) !important;
+}
+body #chooseMode #easyMode {
+  color: var(--easy-color);
+  border: 1px solid currentColor;
+  outline: 2px solid currentColor;
+}
+body #chooseMode #easyMode:hover {
+  background-color: var(--easy-color);
+}
+body #chooseMode #intermediateMode {
+  color: var(--medium-color);
+  border: 1px solid currentColor;
+  outline: 2px solid currentColor;
+}
+body #chooseMode #intermediateMode:hover {
+  background-color: var(--medium-color);
+}
+body #chooseMode #hardMode {
+  color: var(--hard-color);
+  border: 1px solid currentColor;
+  outline: 2px solid currentColor;
+}
+body #chooseMode #hardMode:hover {
+  background-color: var(--hard-color);
+}
+body main {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+body main #score_board {
+  display: flex;
+  height: 20%;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  font-size: 1.3em;
+}
+body main #score_board span {
+  padding: 5px;
+}
+body main #game_board {
+  display: grid;
+  background-color: rgb(55, 55, 55);
+  width: 80vmin;
+  height: 80vmin;
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(21, 1fr);
+}
+body main #game_board * {
+  border: 0.25vmin solid black;
+}
+body main #game_board .snake {
+  background-color: lime;
+}
+body main #game_board .food {
+  background-color: yellow;
+}
+body .showIt {
+  animation-name: show-game;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes show-game {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body .showAnimation {
+  animation-duration: 1s;
+  animation-name: showAnimation;
+  animation-fill-mode: forwards;
+}
+body .endAnimation {
+  animation-name: endAnimation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes showAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes endAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
