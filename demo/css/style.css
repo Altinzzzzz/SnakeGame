@@ -2,7 +2,10 @@
   --easy-color: rgb(25, 67, 255);
   --medium-color: lime;
   --hard-color: #ff1c10;
+  --legendary-color: #FFD700;
   --black-color: black;
+  --change-color: orangered;
+  --question-color: rgb(255, 255, 41);
 }
 
 * {
@@ -12,8 +15,20 @@
   font-size: 1.1em;
 }
 
+button {
+  padding: 15px;
+  opacity: 1;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--black-color) !important;
+  transition: 0.5s;
+}
+
 body {
-  background-color: black;
+  background-color: var(--black-color);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -23,46 +38,51 @@ body {
   margin: 0;
   overflow: hidden;
 }
-body #chooseMode {
+body #choose_mode {
   display: flex;
+  flex-wrap: wrap;
   width: 60%;
   gap: 20px;
 }
-body #chooseMode button {
-  cursor: pointer;
+body #choose_mode button {
   background-color: black;
   flex: 1;
   transition: 0.3s;
-  padding: 15px;
-  opacity: 1;
-  font-size: 1.2em;
 }
-body #chooseMode button:hover {
-  color: var(--black-color) !important;
-}
-body #chooseMode #easyMode {
+body #choose_mode #easy_mode {
   color: var(--easy-color);
   border: 1px solid currentColor;
   outline: 2px solid currentColor;
 }
-body #chooseMode #easyMode:hover {
+body #choose_mode #easy_mode:hover {
   background-color: var(--easy-color);
 }
-body #chooseMode #intermediateMode {
+body #choose_mode #intermediate_mode {
   color: var(--medium-color);
   border: 1px solid currentColor;
   outline: 2px solid currentColor;
 }
-body #chooseMode #intermediateMode:hover {
+body #choose_mode #intermediate_mode:hover {
   background-color: var(--medium-color);
 }
-body #chooseMode #hardMode {
+body #choose_mode #hard_mode {
   color: var(--hard-color);
   border: 1px solid currentColor;
   outline: 2px solid currentColor;
 }
-body #chooseMode #hardMode:hover {
+body #choose_mode #hard_mode:hover {
   background-color: var(--hard-color);
+}
+body #choose_mode #legendary_mode {
+  color: var(--legendary-color);
+  border: 1px solid currentColor;
+  outline: 2px solid currentColor;
+  box-shadow: 0 0 20px currentColor;
+  text-shadow: 0 0 5px currentColor;
+}
+body #choose_mode #legendary_mode:hover {
+  background-color: var(--legendary-color);
+  text-shadow: 0 0 0 currentColor;
 }
 body main {
   width: 100%;
@@ -87,8 +107,8 @@ body main #score_board span {
 body main #game_board {
   display: grid;
   background-color: rgb(55, 55, 55);
-  width: 80vmin;
-  height: 80vmin;
+  width: 79vmin;
+  height: 79vmin;
   grid-template-columns: repeat(21, 1fr);
   grid-template-rows: repeat(21, 1fr);
 }
@@ -101,29 +121,65 @@ body main #game_board .snake {
 body main #game_board .food {
   background-color: yellow;
 }
-body .showIt {
-  animation-name: show-game;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
+body #reload_game {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 30px;
 }
-@keyframes show-game {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+body #reload_game h1 {
+  padding: 15px;
+  margin: auto;
+  font-size: 1.8em;
+  color: var(--question-color);
+  grid-column: 1/3;
+  transition: 0.5s;
 }
-body .showAnimation {
+body #reload_game h1 span {
+  font-size: inherit;
+  color: var(--question-color);
+  transition: 0.5s;
+}
+body #reload_game h1:hover {
+  background-color: var(--question-color);
+  color: var(--black-color);
+}
+body #reload_game h1:hover span {
+  color: var(--black-color);
+}
+body #reload_game button {
+  flex: 1;
+  font-size: 1.4em;
+  background-color: var(--black-color);
+}
+body #reload_game #same_game {
+  color: var(--medium-color);
+  border: 1px solid var(--medium-color);
+  outline: 2px solid var(--medium-color);
+}
+body #reload_game #change_game {
+  color: var(--easy-color);
+  border: 1px solid var(--easy-color);
+  outline: 2px solid var(--easy-color);
+}
+body #reload_game #same_game:hover {
+  background-color: var(--medium-color);
+}
+body #reload_game #change_game:hover {
+  background-color: var(--easy-color);
+}
+
+.startAnimation {
   animation-duration: 1s;
   animation-name: showAnimation;
   animation-fill-mode: forwards;
 }
-body .endAnimation {
+
+.endAnimation {
   animation-name: endAnimation;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
+
 @keyframes showAnimation {
   from {
     opacity: 0;

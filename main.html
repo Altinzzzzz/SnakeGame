@@ -8,19 +8,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
-    <script src = 'mainLogic.js' defer type = 'module'></script>
+    <script src = './js/mainLogic.js' defer type = 'module'></script>
     <title>Document</title>
 </head>
 <body>
-    <div id = 'chooseMode' class = 'showAnimation'>
-        <button type = 'button' id = 'easyMode' class = '1'>
+    <div id = 'choose_mode' class = 'startAnimation'>
+        <button type = 'button' id = 'easy_mode' class = '1'>
             Easy
         </button>
-        <button type = 'button' id = 'intermediateMode' class = '2'>
+        <button type = 'button' id = 'intermediate_mode' class = '2'>
             Intermediate
         </button>
-        <button type = 'button' id = 'hardMode' class = '3'>
+        <button type = 'button' id = 'hard_mode' class = '3'>
             Hard
+        </button>
+        <button type = 'button' id = 'legendary_mode' class = '4'>
+            Legendary
         </button>
     </div>
     <main>
@@ -30,5 +33,10 @@
         </div>
         <div id = 'game_board'></div>
     </main>
+    <div id = 'reload_game'>
+        <h1>Your Score: <span id = 'prev_score'></span></h1>
+        <button type = 'button' id = 'same_game'> Play Again </button>
+        <button type = 'button' id = 'change_game'> Change Mode </button>
+    </div>
 </body>
 </html>
