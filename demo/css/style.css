@@ -39,8 +39,8 @@ body {
   overflow: hidden;
 }
 body #choose_mode {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   width: 60%;
   gap: 20px;
 }
@@ -88,13 +88,13 @@ body main {
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   display: none;
 }
 body main #score_board {
   display: flex;
-  height: 20%;
+  height: 15%;
   width: 100vw;
   align-items: center;
   justify-content: center;
@@ -117,9 +117,11 @@ body main #game_board * {
 }
 body main #game_board .snake {
   background-color: lime;
+  z-index: 2;
 }
 body main #game_board .food {
   background-color: yellow;
+  z-index: 3;
 }
 body #reload_game {
   display: none;

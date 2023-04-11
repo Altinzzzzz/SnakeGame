@@ -28,6 +28,10 @@ button:hover{
 }
 
 body{
+    // background-image: url('https://wallpapercave.com/wp/wp9745842.jpg');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-color: transparent;
     background-color: var(--black-color);
     height: 100vh;
     width: 100vw;
@@ -39,8 +43,8 @@ body{
     overflow: hidden;
 
     #choose_mode{
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         width: 60%;
         gap: 20px;
 
@@ -98,13 +102,13 @@ body{
         width: 100%;
         height: 100%;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         display: none;
 
         #score_board {
             display: flex;
-            height: 20%;
+            height: 15%;
             width: 100vw;
             align-items: center;
             justify-content: center;
@@ -130,10 +134,12 @@ body{
     
             .snake{
                 background-color: lime;
+                z-index: 2;
             }
     
             .food{
                 background-color: yellow;
+                z-index: 3;
             }
         }
     }

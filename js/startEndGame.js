@@ -45,7 +45,7 @@ function addIt(element, secondElement, displayType){
 }
 
 function showDifficulty(){
-    addIt(reload_game, button_parent, 'flex');
+    addIt(reload_game, button_parent, 'grid');
 }
 
 function showGame(element){
