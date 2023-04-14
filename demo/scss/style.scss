@@ -96,6 +96,47 @@ body{
             background-color: var(--legendary-color);
             text-shadow: 0 0 0 currentColor;
         }
+
+        #custom_mode{
+            grid-column: 1 / -1;
+            margin: auto;
+            width: 150px;
+            height: 150px;
+            border: 1px solid purple;
+            outline: 2px solid purple;
+            color: purple;
+            border-radius: 50%;
+        }
+
+        #custom_mode:hover{
+            box-shadow: 0 0 40px purple;
+            background-color: purple;
+        }
+    }
+
+    #customInputs{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        div{
+            display: flex;
+            width: 100%;
+
+            *{
+                padding: 5px;
+            }
+
+            input{
+                width: 60%;
+            }
+
+            button{
+                width: 40%;
+                font-size: 1em;
+            }
+        }
     }
 
     main{
@@ -149,30 +190,6 @@ body{
         grid-template-columns: 1fr 1fr;
         gap: 40px 30px;
 
-        h1{
-            padding: 15px;
-            margin: auto;
-            font-size: 1.8em;
-            color: var(--question-color);
-            grid-column: 1 / 3;
-            transition: .5s;
-
-            span{
-                font-size: inherit;
-                color: var(--question-color);
-                transition: .5s;
-            }
-        }
-
-        h1:hover{
-            background-color: var(--question-color);
-            color: var(--black-color);
-
-            span{
-                color: var(--black-color);
-            }
-        }
-
         button{
             flex: 1;
             font-size: 1.4em;
@@ -201,6 +218,30 @@ body{
     }
 }
 
+
+.general_text{
+    padding: 15px;
+    margin: auto;
+    font-size: 1.8em;
+    color: var(--question-color);
+    grid-column: 1 / 3;
+    transition: .5s;
+
+    span{
+        font-size: inherit;
+        color: var(--question-color);
+        transition: .5s;
+    }
+}
+
+.general_text:hover{
+    background-color: var(--question-color);
+    color: var(--black-color);
+
+    span{
+        color: var(--black-color);
+    }
+}
 
 .startAnimation{
     animation-duration: 1s;

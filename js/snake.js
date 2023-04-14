@@ -1,6 +1,6 @@
 import {getDirection} from './inputDirection.js';
 
-export function setSpeed(classNr){
+export function getSpeed(classNr){
     switch(classNr){
         case '1':
             return 4;
@@ -9,7 +9,7 @@ export function setSpeed(classNr){
         case '3':
             return 12;
         case '4':
-            return 25;
+            return 22;
     }
 };
 

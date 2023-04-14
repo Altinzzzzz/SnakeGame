@@ -84,6 +84,40 @@ body #choose_mode #legendary_mode:hover {
   background-color: var(--legendary-color);
   text-shadow: 0 0 0 currentColor;
 }
+body #choose_mode #custom_mode {
+  grid-column: 1/-1;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  border: 1px solid purple;
+  outline: 2px solid purple;
+  color: purple;
+  border-radius: 50%;
+}
+body #choose_mode #custom_mode:hover {
+  box-shadow: 0 0 40px purple;
+  background-color: purple;
+}
+body #customInputs {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+body #customInputs div {
+  display: flex;
+  width: 100%;
+}
+body #customInputs div * {
+  padding: 5px;
+}
+body #customInputs div input {
+  width: 60%;
+}
+body #customInputs div button {
+  width: 40%;
+  font-size: 1em;
+}
 body main {
   width: 100%;
   height: 100%;
@@ -128,26 +162,6 @@ body #reload_game {
   grid-template-columns: 1fr 1fr;
   gap: 40px 30px;
 }
-body #reload_game h1 {
-  padding: 15px;
-  margin: auto;
-  font-size: 1.8em;
-  color: var(--question-color);
-  grid-column: 1/3;
-  transition: 0.5s;
-}
-body #reload_game h1 span {
-  font-size: inherit;
-  color: var(--question-color);
-  transition: 0.5s;
-}
-body #reload_game h1:hover {
-  background-color: var(--question-color);
-  color: var(--black-color);
-}
-body #reload_game h1:hover span {
-  color: var(--black-color);
-}
 body #reload_game button {
   flex: 1;
   font-size: 1.4em;
@@ -168,6 +182,28 @@ body #reload_game #same_game:hover {
 }
 body #reload_game #change_game:hover {
   background-color: var(--easy-color);
+}
+
+.general_text {
+  padding: 15px;
+  margin: auto;
+  font-size: 1.8em;
+  color: var(--question-color);
+  grid-column: 1/3;
+  transition: 0.5s;
+}
+.general_text span {
+  font-size: inherit;
+  color: var(--question-color);
+  transition: 0.5s;
+}
+
+.general_text:hover {
+  background-color: var(--question-color);
+  color: var(--black-color);
+}
+.general_text:hover span {
+  color: var(--black-color);
 }
 
 .startAnimation {
