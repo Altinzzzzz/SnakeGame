@@ -1,29 +1,40 @@
+import { snake_len } from './mainLogic.js';
 import { onSnake, expandSnake } from './snake.js';
-import { randomGridPosition } from './grid.js';
+import { getNewFoodPosition } from './grid.js';
+import { updateScore } from './scores.js';
 
-let food = getRandom();
+let foodContainer = [];
 let expansion_rate = 1;
 
-export function update(score){
-    if(onSnake(food)){
-        expandSnake(expansion_rate);
-        food = getRandom();
-        score.textContent = +score.textContent + 1;
+export function update(){
+    updateFoodContainer()
+    for(let i = 0; i < foodContainer.length; i++){
+        if(onSnake(foodContainer[i])){
+            foodContainer.splice(i, 1);
+            expandSnake(expansion_rate);
+            updateFoodContainer();
+            updateScore();
+        }
     }
 }
 
 export function draw(game_board){
-    let element = document.createElement('div');
-    element.style.gridColumnStart = food.x;
-    element.style.gridRowStart = food.y;
-    element.className = 'food';
-    game_board.appendChild(element);
+    for(let i = 0; i < foodContainer.length; i++){
+        let element = document.createElement('div');
+        element.style.gridColumnStart = foodContainer[i].x;
+        element.style.gridRowStart = foodContainer[i].y;
+        element.className = 'food';
+        game_board.appendChild(element);
+    }
 }
 
-function getRandom(){
-    let newFoodPosition = null;
-    while (newFoodPosition == null || onSnake(newFoodPosition)){
-        newFoodPosition = randomGridPosition();
+function updateFoodContainer(){
+    for(let i = 0; i < snake_len - foodContainer.length; i++){
+        let current_food = getNewFoodPosition();
+        if(!onSnake(current_food)){
+            foodContainer.push(getNewFoodPosition());
+        } else {
+            i--;
+        }
     }
-    return newFoodPosition;
 }

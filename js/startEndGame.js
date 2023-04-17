@@ -1,5 +1,10 @@
-import {getSpeed} from './snake.js';
-import {main_component, button_parent, reload_game} from './mainLogic.js';
+import { getSpeed } from './snake.js';
+import { button_parent } from './mainLogic.js';
+import { showDifficulty, showGame, replayMenu, showCustomPage } from './sections.js'
+import { showFinalScore } from './scores.js';
+
+let main_component = document.querySelector('main');
+let reload_game = document.querySelector('#reload_game');
 
 let same_game = document.querySelector('#same_game');
 let change_game = document.querySelector('#change_game');
@@ -7,81 +12,43 @@ let custom_btn = document.querySelector('#custom_btn');
 let custom_page = document.querySelector('#customInputs');
 let valueHolder = document.querySelector('#custom_speed');
 
-let the_button;
-
-export function setUpSpeed(btn){
-    the_button = btn;
-    return getSpeed(btn.className);
-}
+let the_button, current_speed = 0;
 
 export function startGame(btn){
-    let speed;
+    the_button = btn;
     if(btn.className != '5'){
-        speed = setUpSpeed(btn); 
-        showGame(button_parent);
-        return speed;
+        current_speed = 0;
+        showGame(button_parent, main_component);
+        return Promise.resolve(getSpeed(btn.className));
     } else {
-        showCustomPage();
-        custom_btn.addEventListener('click', () => {
-            speed = valueHolder.value;
-            console.log(speed + 'yoo');
-            showGame(button_parent);
-            return speed;
-        })
+        if(current_speed != 0){
+            showGame(custom_page, main_component);
+            return Promise.resolve(current_speed);
+        }
+        showCustomPage(button_parent, custom_page);
+        return new Promise((resolve) => {
+            custom_btn.addEventListener('click', () => {
+                if(valueHolder.value < 1 || valueHolder.value > 30) return;
+                const speed = Math.round(valueHolder.value); // valueHolder is the input given by user
+                current_speed = speed;
+                showGame(custom_page, main_component); // shows the game and removes the custom page
+                resolve(speed); // resolve the Promise with the custom speed value
+            });
+        });
     }
 }
 
-export function endGame(current_score, top_score, prev_score){
-    if(+top_score.textContent < +current_score.textContent){
-        localStorage.setItem('topScore', current_score.textContent);
-        top_score.textContent = current_score.textContent;
-    }
-
-    prev_score.textContent = current_score.textContent;
-    current_score.textContent = 0;
-    replayMenu();
-}
-
-function addIt(element, secondElement, displayType){
-    addAnimation(element, 'endAnimation');
-
-    setTimeout(() => {
-        addDisplay(element, 'none');
-        addAnimation(secondElement, 'startAnimation');
-        addDisplay(secondElement, displayType);
-    }, 1000);
-}
-
-
-function showDifficulty(){
-    addIt(reload_game, button_parent, 'grid');
-}
-
-function showGame(element){
-    addIt(element, main_component, 'flex');
-}
-
-function replayMenu(){
-    addIt(main_component, reload_game, 'grid');
-}
-
-function showCustomPage(){
-    addIt(button_parent, custom_page, 'flex');
+export function endGame(){
+    showFinalScore();
+    replayMenu(main_component, reload_game);
 }
 
 same_game.addEventListener('click', () => {
-    showGame(reload_game);
+    showGame(reload_game, main_component);
     the_button.click();
 });
 
 change_game.addEventListener('click', () => {
-    showDifficulty();
+    current_speed = 0;
+    showDifficulty(reload_game, button_parent);
 });
-
-function addAnimation(element, theAnimation){
-    element.className = theAnimation;
-}
-
-function addDisplay(element, theDisplay){
-    element.style.display = theDisplay;
-}

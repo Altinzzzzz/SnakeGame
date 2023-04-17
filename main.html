@@ -30,21 +30,25 @@
         </button>
     </div>
     <div id = 'customInputs'>
-        <p class = 'general_text'> Choose Input </p>
+        <p class = 'general_text information_text'> Choose Input </p>
         <div>
             <input type="number" min = "1" max = "30" value = "2" id = 'custom_speed'>
             <button type = 'button' id = 'custom_btn'> Enter </button>
         </div>
     </div>
     <main>
-        <div id = 'score_board'>
-            <p> Current score: <span id = 'current_score'>0</span></p>
-            <p> Best score: <span id = 'top_score'>0</span></p>
+        <div id = 'score_board' class = "information_text">
+            <p class = "information_text"> Current score: <span id = 'current_score' class = "information_text">0</span></p>
+            <p class = "information_text special_score"> Best score: <span id = 'easy_top_score' class = "information_text">0</span></p>
+            <p class = "information_text special_score"> Best score: <span id = 'intermediate_top_score' class = "information_text">0</span></p>
+            <p class = "information_text special_score"> Best score: <span id = 'hard_top_score' class = "information_text">0</span></p>
+            <p class = "information_text special_score"> Best score: <span id = 'legendary_top_score' class = "information_text">0</span></p>
+            <p class = "information_text special_score"> Best score: <span id = 'custom_top_score' class = "information_text">0</span></p>
         </div>
         <div id = 'game_board'></div>
     </main>
     <div id = 'reload_game'>
-        <p>Your Score: <span id = 'prev_score'></span></p>
+        <p class = "information_text">Your Score: <span id = 'prev_score' class = "information_text"></span></p>
         <button type = 'button' id = 'same_game'> Play Again </button>
         <button type = 'button' id = 'change_game'> Change Mode </button>
     </div>
