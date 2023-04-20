@@ -1,30 +1,25 @@
 :root {
-  --easy-color: rgb(25, 67, 255);
-  --medium-color: lime;
+  --easy-color: lime;
+  --medium-color: rgb(25, 67, 255);
   --hard-color: #ff1c10;
   --legendary-color: #FFD700;
+  --custom-color: purple;
   --black-color: black;
-  --change-color: orangered;
   --question-color: rgb(255, 255, 41);
+  --special-pink-color: #FF53cd;
+  --special-pink-glow: #e10361;
+  --special-blue-color: #2dd9fe;
+  --special-blue-glow: #00a3d5;
+  --special-red-color: #D30302;
+  --special-red-glow: #FF5161;
 }
 
 * {
   font-family: "Black Ops One", cursive, sans-serif;
   font-weight: 400;
-  color: lime;
+  color: --easy-color;
   font-size: 1.1em;
-}
-
-button {
-  padding: 15px;
-  opacity: 1;
-  font-size: 1.4em;
-  cursor: pointer;
-}
-
-button:hover {
-  color: var(--black-color) !important;
-  transition: 0.5s;
+  box-sizing: border-box;
 }
 
 .information_text {
@@ -48,99 +43,174 @@ body {
   margin: 0;
   overflow: hidden;
 }
-body #choose_mode {
-  display: grid;
+body #choose_gamemode_type {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+body #choose_gamemode_type * {
+  background-color: black;
+  padding: 20px;
+}
+body #choose_gamemode_type #normal_gamemode_btn {
+  color: var(--easy-color);
+  border: 1px solid var(--easy-color);
+  outline: 2px solid var(--easy-color);
+}
+body #choose_gamemode_type #normal_gamemode_btn:hover {
+  background-color: var(--easy-color);
+  border: 1px solid var(--easy-color);
+  outline: 2px solid var(--easy-color);
+}
+body #choose_gamemode_type #special_gamemode_btn {
+  color: var(--legendary-color);
+  border: 1px solid currentColor;
+  outline: 2px solid currentColor;
+}
+body #choose_gamemode_type #special_gamemode_btn:hover {
+  background-color: var(--legendary-color);
+  border: 1px solid var(--legendary-color);
+  outline: 2px solid var(--legendary-color);
+}
+body #normal_mode {
+  display: none;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   width: 60%;
   gap: 20px;
 }
-body #choose_mode button {
+@media screen and (max-width: 1767px) {
+  body #normal_mode {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+body #normal_mode button {
   background-color: black;
   flex: 1;
   transition: 0.3s;
 }
-body #choose_mode #easy_mode {
+body #normal_mode #easy_mode {
   color: var(--easy-color);
   border: 1px solid currentColor;
   outline: 2px solid currentColor;
 }
-body #choose_mode #easy_mode:hover {
+body #normal_mode #easy_mode:hover {
   background-color: var(--easy-color);
 }
-body #choose_mode #intermediate_mode {
+body #normal_mode #intermediate_mode {
   color: var(--medium-color);
   border: 1px solid currentColor;
   outline: 2px solid currentColor;
 }
-body #choose_mode #intermediate_mode:hover {
+body #normal_mode #intermediate_mode:hover {
   background-color: var(--medium-color);
 }
-body #choose_mode #hard_mode {
+body #normal_mode #hard_mode {
   color: var(--hard-color);
   border: 1px solid currentColor;
   outline: 2px solid currentColor;
 }
-body #choose_mode #hard_mode:hover {
+body #normal_mode #hard_mode:hover {
   background-color: var(--hard-color);
 }
-body #choose_mode #legendary_mode {
+body #normal_mode #legendary_mode {
   color: var(--legendary-color);
   border: 1px solid currentColor;
   outline: 2px solid currentColor;
   box-shadow: 0 0 20px currentColor;
   text-shadow: 0 0 5px currentColor;
 }
-body #choose_mode #legendary_mode:hover {
+body #normal_mode #legendary_mode:hover {
   background-color: var(--legendary-color);
   text-shadow: 0 0 0 currentColor;
 }
-body #choose_mode #custom_mode {
+body #normal_mode #custom_mode {
   grid-column: 1/-1;
   margin: auto;
   width: 150px;
   height: 150px;
-  border: 1px solid purple;
-  outline: 2px solid purple;
-  color: purple;
+  border: 1px solid var(--custom-color);
+  outline: 2px solid var(--custom-color);
+  color: var(--custom-color);
   border-radius: 50%;
 }
-body #choose_mode #custom_mode:hover {
+body #normal_mode #custom_mode:hover {
   box-shadow: 0 0 40px purple;
   background-color: purple;
+}
+body #special_mode {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 60%;
+  gap: 20px;
+}
+body #special_mode #half_minute_mode {
+  color: var(--special-blue-color);
+  border: 1px solid var(--special-blue-color);
+  outline: 2px solid var(--special-blue-color);
+  box-shadow: 0 0 15px var(--special-blue-glow);
+}
+body #special_mode #half_minute_mode:hover {
+  background-color: var(--special-blue-color);
+  box-shadow: 0 0 25px var(--special-blue-glow);
+}
+body #special_mode #minute_mode {
+  color: var(--special-red-color);
+  border: 1px solid var(--special-red-color);
+  outline: 2px solid var(--special-red-color);
+  box-shadow: 0 0 15px var(--special-red-glow);
+}
+body #special_mode #minute_mode:hover {
+  background-color: var(--special-red-color);
+  box-shadow: 0 0 25px var(--special-red-glow);
 }
 body #customInputs {
   display: none;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 30%;
   gap: 15px;
 }
 body #customInputs .general_text {
   padding: 15px;
   margin: auto;
   font-size: 1.8em;
-  grid-column: 1/3;
 }
-body #customInputs div {
+body #customInputs > div {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   width: 100%;
 }
-body #customInputs div * {
-  padding: 5px;
+body #customInputs > div * {
+  color: var(--easy-color);
   background-color: black;
-  border: 1px solid var(--medium-color);
+  border: 1px solid var(--easy-color);
+  height: 60%;
 }
-body #customInputs div input {
-  width: 60%;
+body #customInputs > div p {
+  display: flex;
+  align-items: center;
+  border: none;
+  color: var(--easy-color);
+  width: 35%;
 }
-body #customInputs div input:focus {
-  outline: none;
+body #customInputs > div input {
+  width: 65%;
+  outline: 2px solid var(--easy-color);
+  padding-left: 10px;
 }
-body #customInputs div button {
+body #customInputs button {
+  color: var(--easy-color);
+  background-color: var(--black-color);
+  border: 1px solid var(--easy-color);
+  outline: 2px solid var(--easy-color);
   width: 40%;
-  font-size: 1em;
+  font-size: 1.2em;
 }
-body #customInputs div button:hover {
-  background-color: var(--medium-color);
+body #customInputs button:hover {
+  background-color: var(--easy-color);
   border: var(--black-color);
   transition: 0.5s;
 }
@@ -184,40 +254,75 @@ body main #game_board .food {
 }
 body #reload_game {
   display: none;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 30px;
-}
-body #reload_game p {
-  font-size: 1.8em;
-  grid-column: 1/3;
-  display: flex;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
+  width: 60%;
+  gap: 20px 30px;
 }
-body #reload_game p span {
+@media screen and (max-width: 1540px) {
+  body #reload_game {
+    grid-template-rows: repeat(4, 1fr);
+    gap: 15px;
+  }
+  body #reload_game * {
+    grid-column: 1/-1;
+  }
+}
+body #reload_game p {
+  font-size: 1.6em;
+  grid-column: 1/-1;
   display: flex;
   align-items: center;
+  color: var(--question-color);
+  margin: 0 auto;
+}
+body #reload_game p span {
+  align-items: center;
+  padding: 5px;
 }
 body #reload_game button {
   flex: 1;
-  font-size: 1.4em;
+  font-size: 1.3em;
+  color: var(--easy-color);
+  border: 1px solid var(--easy-color);
+  outline: 2px solid var(--easy-color);
   background-color: var(--black-color);
 }
-body #reload_game #same_game {
+body #reload_game button:hover {
+  color: var(--easy-color);
+  background-color: var(--easy-color);
+}
+body #reload_game #change_difficulty {
   color: var(--medium-color);
   border: 1px solid var(--medium-color);
   outline: 2px solid var(--medium-color);
 }
-body #reload_game #change_game {
-  color: var(--easy-color);
-  border: 1px solid var(--easy-color);
-  outline: 2px solid var(--easy-color);
-}
-body #reload_game #same_game:hover {
+body #reload_game #change_difficulty:hover {
   background-color: var(--medium-color);
 }
-body #reload_game #change_game:hover {
-  background-color: var(--easy-color);
+body #reload_game #change_mode {
+  color: var(--hard-color);
+  border: 1px solid var(--hard-color);
+  outline: 2px solid var(--hard-color);
+}
+body #reload_game #change_mode:hover {
+  background-color: var(--hard-color);
+}
+
+button {
+  background-color: var(--black-color);
+  padding: 15px;
+  opacity: 1;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--black-color) !important;
+  transition: 0.5s;
+  border: 1px solid inherit;
+  outline: 2px solid inherit;
 }
 
 .startAnimation {

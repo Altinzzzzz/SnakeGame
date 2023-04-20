@@ -1,3 +1,7 @@
+export function showGamemode(gamemodes_parent, gamemode_chosen){
+    addIt(gamemodes_parent, gamemode_chosen, 'grid');
+}
+
 export function showDifficulty(reload_game, button_parent){
     addIt(reload_game, button_parent, 'grid');
 }

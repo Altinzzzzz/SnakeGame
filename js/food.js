@@ -1,10 +1,10 @@
-import { snake_len } from './mainLogic.js';
 import { onSnake, expandSnake } from './snake.js';
 import { getNewFoodPosition } from './grid.js';
 import { updateScore } from './scores.js';
 
 let foodContainer = [];
 let expansion_rate = 1;
+let food_amount = 1;
 
 export function update(){
     updateFoodContainer()
@@ -29,7 +29,7 @@ export function draw(game_board){
 }
 
 function updateFoodContainer(){
-    for(let i = 0; i < snake_len - foodContainer.length; i++){
+    for(let i = 0; i < food_amount - foodContainer.length; i++){
         let current_food = getNewFoodPosition();
         if(!onSnake(current_food)){
             foodContainer.push(getNewFoodPosition());
@@ -37,4 +37,9 @@ function updateFoodContainer(){
             i--;
         }
     }
+}
+
+export function setFood(amount){
+    foodContainer = [];
+    food_amount = amount;
 }

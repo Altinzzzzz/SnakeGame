@@ -9,10 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <script src = './js/mainLogic.js' defer type = 'module'></script>
-    <title>Document</title>
+    <title>Snake Game</title>
 </head>
 <body>
-    <div id = 'choose_mode' class = 'startAnimation'>
+    <div id = 'choose_gamemode_type' class = 'startAnimation'>
+        <button type = 'button' id = 'normal_gamemode_btn'>Normal Mode</button>
+        <button type = 'button' id = 'special_gamemode_btn'>Special Mode</button>
+    </div>
+    <div id = 'normal_mode'>
         <button type = 'button' id = 'easy_mode' class = '1'>
             Easy
         </button>
@@ -29,12 +33,25 @@
             Custom
         </button>
     </div>
+    <div id = 'special_mode'>
+        <button type = 'button' id = 'half_minute_mode' class = 'half_minute'>
+            Half Minute
+        </button>
+        <button type = 'button' id = 'minute_mode' class = 'full_minute'>
+            Full Minute
+        </button>
+    </div>
     <div id = 'customInputs'>
         <p class = 'general_text information_text'> Choose Input </p>
         <div>
-            <input type="number" min = "1" max = "30" value = "2" id = 'custom_speed'>
-            <button type = 'button' id = 'custom_btn'> Enter </button>
+            <p> Speed... </p>
+            <input type="number" min = "1" max = "30" value = "2" id = 'custom_speed_input'>
         </div>
+        <div>
+            <p> Food... </p>
+            <input type="number" min = "1" max = "5" value = "1" id = 'custom_food_input'>  
+        </div>
+        <button type = 'button' id = 'custom_btn'> Enter </button>
     </div>
     <main>
         <div id = 'score_board' class = "information_text">
@@ -48,9 +65,10 @@
         <div id = 'game_board'></div>
     </main>
     <div id = 'reload_game'>
-        <p class = "information_text">Your Score: <span id = 'prev_score' class = "information_text"></span></p>
+        <p>Your Score: <span id = 'prev_score'></span></p>
         <button type = 'button' id = 'same_game'> Play Again </button>
-        <button type = 'button' id = 'change_game'> Change Mode </button>
+        <button type = 'button' id = 'change_difficulty'> Change Difficulty </button>
+        <button type = 'button' id = 'change_mode'> Change Mode </button>
     </div>
 </body>
 </html>
