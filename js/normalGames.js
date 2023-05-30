@@ -1,11 +1,19 @@
 import { update as updateSnake, draw as drawSnake, getSnakeTop, resetSnake, snakeCollision } from './snake.js';
-import { update as updateFood, draw as drawFood, setFood } from './food.js';
+import { update as updateFood, draw as drawFood } from './food.js';
 import { checkBorder } from './grid.js';
 
-export function startNormalGame(game_board, game_over){
-    update(game_over);
+let isTimeDone = false;
+
+export function startNormalGame(game_board){
+    update();
     draw(game_board);
     return checkGameOver();
+}
+
+export function startSpecialGame(game_board){
+    update();
+    draw(game_board);
+    return checkGameOver() || checkTimeOver();
 }
 
 function update(){
@@ -21,4 +29,12 @@ function draw(game_board){
 
 function checkGameOver(){
     return checkBorder(getSnakeTop()) || snakeCollision();
+}
+
+function checkTimeOver(){
+    return isTimeDone;
+}
+
+export function switchTimer(val){
+    isTimeDone = val;
 }

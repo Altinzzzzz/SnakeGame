@@ -1,5 +1,5 @@
 import { getSpeed } from './snake.js';
-import { button_parent } from './mainLogic.js';
+import { button_parent, special_button_parent } from './mainLogic.js';
 import { showDifficulty, showGame, replayMenu, showCustomPage } from './sections.js'
 import { showFinalScore } from './scores.js';
 
@@ -41,16 +41,21 @@ export function normalGameLogic(btn){
     }
 }
 
-// export function specialGameLogic(btn){
+export function specialGameLogic(btn){
+    the_button = btn;
+    current_speed = getSpeed('3');
+    current_food = 3;
+    if(btn.className == 'half_minute' || btn.className == 'full_minute'){
+        showGame(special_button_parent, main_component);
+    }
 
-// }
+    return Promise.resolve([current_speed, current_food]);
+}
 
 export function endGame(){
     showFinalScore();
     replayMenu(main_component, reload_game);
 }
-
-
 
 same_game.addEventListener('click', () => {
     showGame(reload_game, main_component);
@@ -59,9 +64,14 @@ same_game.addEventListener('click', () => {
 
 change_difficulty.addEventListener('click', () => {
     current_speed = 0;
-    showDifficulty(reload_game, button_parent);
+    if(the_button.parentNode.id == 'normal_mode'){
+        showDifficulty(reload_game, button_parent);
+    } else {
+        showDifficulty(reload_game, special_button_parent)
+    }
 });
 
 change_mode.addEventListener('click', () => {
-    ///
+    window.location.href = 'main.html';
+    location.reload();
 })

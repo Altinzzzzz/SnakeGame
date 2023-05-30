@@ -37,7 +37,7 @@
         <button type = 'button' id = 'half_minute_mode' class = 'half_minute'>
             Half Minute
         </button>
-        <button type = 'button' id = 'minute_mode' class = 'full_minute'>
+        <button type = 'button' id = 'full_minute_mode' class = 'full_minute'>
             Full Minute
         </button>
     </div>
@@ -56,11 +56,16 @@
     <main>
         <div id = 'score_board' class = "information_text">
             <p class = "information_text"> Current score: <span id = 'current_score' class = "information_text">0</span></p>
-            <p class = "information_text special_score"> Best score: <span id = 'easy_top_score' class = "information_text">0</span></p>
-            <p class = "information_text special_score"> Best score: <span id = 'intermediate_top_score' class = "information_text">0</span></p>
-            <p class = "information_text special_score"> Best score: <span id = 'hard_top_score' class = "information_text">0</span></p>
-            <p class = "information_text special_score"> Best score: <span id = 'legendary_top_score' class = "information_text">0</span></p>
-            <p class = "information_text special_score"> Best score: <span id = 'custom_top_score' class = "information_text">0</span></p>
+            <div class = 'top_scores_container'>
+                <p class = "information_text special_score"> Best score: <span id = 'easy_top_score' class = "information_text">0</span></p>
+                <p class = "information_text special_score"> Best score: <span id = 'intermediate_top_score' class = "information_text">0</span></p>
+                <p class = "information_text special_score"> Best score: <span id = 'hard_top_score' class = "information_text">0</span></p>
+                <p class = "information_text special_score"> Best score: <span id = 'legendary_top_score' class = "information_text">0</span></p>
+                <p class = "information_text special_score"> Best score: <span id = 'custom_top_score' class = "information_text">0</span></p>
+                <p class = "information_text special_score"> Best score: <span id = 'half_minute_top_score' class = "information_text">0</span></p>
+                <p class = "information_text special_score"> Best score: <span id = 'full_minute_top_score' class = "information_text">0</span></p>
+            </div>
+            <span id = 'timer' class = 'information_text timer'></span>
         </div>
         <div id = 'game_board'></div>
     </main>

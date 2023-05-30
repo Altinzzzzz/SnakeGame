@@ -5,6 +5,7 @@ import { updateScore } from './scores.js';
 let foodContainer = [];
 let expansion_rate = 1;
 let food_amount = 1;
+let food_added = false; 
 
 export function update(){
     updateFoodContainer()
@@ -14,6 +15,7 @@ export function update(){
             expandSnake(expansion_rate);
             updateFoodContainer();
             updateScore();
+            food_added = true;
         }
     }
 }
@@ -42,4 +44,13 @@ function updateFoodContainer(){
 export function setFood(amount){
     foodContainer = [];
     food_amount = amount;
+}
+
+export function hasFoodBeenAdded(){
+    if(!food_added){
+        return false;
+    } else {
+        food_added = false;
+        return true;
+    }
 }
